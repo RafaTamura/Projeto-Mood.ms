@@ -15,6 +15,8 @@ export class MusicaComponent implements OnInit{
   formulario: any ;
   tituloFormulario: string;
   musicas : Musica[];
+  visibilidadeTabela : boolean = true
+  visibilidadeFormulario : boolean = false
 
 constructor(private musicaService :MusicaService){
 
@@ -24,18 +26,66 @@ constructor(private musicaService :MusicaService){
     this.musicaService.PegarTodos().subscribe(resultado =>
       this.musicas = resultado)
 
-    this.tituloFormulario = 'Nova Musica'
-    this.formulario = new FormGroup({
 
-      musicaId: new FormControl(0),
-      musicaNome: new FormControl(null),
-      musicaArtista: new FormControl(null),
-      musicaEstilo: new FormControl(null),
-      musicaFeeling: new FormControl(null),
-      musicaLink: new FormControl(null)
-    });
+    }
+    ExibirFormularioCadastro(): void{
+      this.visibilidadeFormulario = true;
+      this.visibilidadeTabela = false;
+      this.tituloFormulario = 'Nova Musica'
+      this.formulario = new FormGroup({
+
+        musicaId: new FormControl(0),
+        musicaNome: new FormControl(null),
+        musicaArtista: new FormControl(null),
+        musicaEstilo: new FormControl(null),
+        musicaFeeling: new FormControl(null),
+        musicaLink: new FormControl(null)
+      });
+    }
+    ExibirFormularioAtt(musicaId: number):void{
+      this.visibilidadeFormulario=true;
+      this.visibilidadeTabela=false;
+      this.musicaService.PegarPeloId(musicaId).subscribe(resultado => {
+        this.tituloFormulario = `Atualizar ${resultado.musicaNome} de ${resultado.musicaArtista}`;
+
+        this.formulario = new FormGroup({
+          musicaId: new FormControl(resultado.musicaId),
+          musicaNome: new FormControl(resultado.musicaNome),
+          musicaArtista: new FormControl(resultado.musicaArtista),
+          musicaEstilo: new FormControl(resultado.musicaEstilo),
+          musicaLink: new FormControl(resultado.musicaLink),
+          musicaFeeling: new FormControl(resultado.musicaFeeling)
+        })
+      })
     }
     EnviarFormulario(): void{
       const musica : Musica = this.formulario.value;
-      this.musicaService.SalvarUsuario(musica).subscribe()
-      }}
+      if(musica.musicaId > 0){
+        this.musicaService.AtualizarUsuario(musica).subscribe((resultado) =>{
+          this.visibilidadeFormulario = false;
+          this.visibilidadeTabela = true;
+
+          alert('Música Atualizada com Sucesso');
+          this.musicaService.PegarTodos().subscribe((registros)=>{
+            this.musicas = registros;
+          })
+        })
+      } else {
+      this.musicaService.SalvarUsuario(musica).subscribe((resultado) => {
+        this.visibilidadeFormulario = false;
+        this.visibilidadeTabela = true;
+
+        alert('Música Inserida com Sucesso');
+        this.musicaService.PegarTodos().subscribe(registros=>{
+          this.musicas = registros;
+      })
+    })
+  }
+
+    }
+    Voltar(): void{
+      this.visibilidadeTabela = true;
+      this.visibilidadeFormulario = false;
+      }
+
+  }

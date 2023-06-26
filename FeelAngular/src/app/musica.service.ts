@@ -14,7 +14,7 @@ const httpOptions = {
 
 export class MusicaService {
 
-  url = 'https://localhost:7081/api/Musica/musica'
+  url = 'https://localhost:7243/api/Musica/musica'
 
     constructor(private http: HttpClient) {}
 
