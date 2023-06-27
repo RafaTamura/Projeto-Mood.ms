@@ -2,7 +2,6 @@ import { MusicaService } from './../../musica.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Musica } from 'src/app/Musica';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 
 @Component({

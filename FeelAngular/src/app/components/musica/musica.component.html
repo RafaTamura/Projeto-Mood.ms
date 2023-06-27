@@ -1,3 +1,4 @@
+<h1>Cadastro de Músicas</h1>
 <div class="container p-5" *ngIf="visibilidadeTabela">
   <div class="border border-light rounded p-5" >
     <div>
@@ -32,7 +33,7 @@
 
 <div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
-    <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
+    <div class="col-12 border border-light rounded p-5 shadow" *ngIf="formulario">
       <h6> {{ tituloFormulario }}</h6>
       <hr />
       <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
@@ -58,12 +59,10 @@
         </div>
         <div class="container">
           <div class="row">
-            <button type="submit" class="btn btn-sm btn-outline-secundary"> Salvar </button>
+            <button type="submit" class="btn btn-sm btn-outline-secundary btn-dark botaoMusica"> Enviar </button>
+            <button type="button" class="btn btn-sm btn-outline-secundary btn-dark botaoMusica" (click)="Voltar()"> Voltar</button>
           </div>
-          <div class="pl-1">
-            <button type="button" class="btn btn-sm btn-light" (click)="Voltar()"> Voltar</button>
           </div>
-        </div>
       </form>
     </div>
   </div>

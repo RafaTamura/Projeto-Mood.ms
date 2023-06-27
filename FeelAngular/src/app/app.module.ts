@@ -9,7 +9,6 @@ import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponentComponent } from './components/usuario-component/usuario-component.component';
 import { MusicaComponent } from './components/musica/musica.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -23,8 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    ModalModule.forRoot()
+    ReactiveFormsModule
   ],
   providers: [HttpClientModule, UsuarioService],
   bootstrap: [AppComponent]

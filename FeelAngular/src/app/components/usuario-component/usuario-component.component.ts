@@ -2,7 +2,6 @@ import { UsuarioService } from './../../usuario.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from 'src/app/Usuario';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 
 @Component({
