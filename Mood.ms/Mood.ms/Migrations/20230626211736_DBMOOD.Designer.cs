@@ -11,7 +11,7 @@ using Mood.ms;
 namespace Mood.ms.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230626021327_DBMOOD")]
+    [Migration("20230626211736_DBMOOD")]
     partial class DBMOOD
     {
         /// <inheritdoc />

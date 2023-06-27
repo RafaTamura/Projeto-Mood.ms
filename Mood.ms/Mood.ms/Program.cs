@@ -4,7 +4,7 @@ namespace Mood.ms
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication.CreateBuilder(args);   
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddCors();
@@ -34,6 +34,7 @@ namespace Mood.ms
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            
 
 
             app.MapControllers();

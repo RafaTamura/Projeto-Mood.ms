@@ -17,6 +17,9 @@ namespace Mood.ms.Tabelas
             builder.Property(x => x.MusicaArtista).IsRequired().HasMaxLength(100);
             builder.Property(x => x.MusicaFeeling).IsRequired().HasMaxLength(10);
 
+
+
+
         }
     }
 }

@@ -12,9 +12,10 @@ namespace Mood.ms.Tabelas
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.Email).IsRequired().HasMaxLength(30);
             builder.Property(x => x.Senha).IsRequired().HasMaxLength(10);
+            builder.Property(x => x.Email).IsRequired().HasMaxLength(30);
 
         }
+
     }
 }

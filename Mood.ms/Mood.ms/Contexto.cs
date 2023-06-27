@@ -33,6 +33,7 @@ namespace Mood.ms
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           
             modelBuilder.ApplyConfiguration(new MusicaTabelas());
             modelBuilder.ApplyConfiguration(new UsuarioTabelas());
             base.OnModelCreating(modelBuilder);

@@ -73,6 +73,8 @@ namespace Mood.ms.Controllers
             try
             {
                 p.Nome = usuario.Nome;
+                p.Email = usuario.Email;
+                p.Senha = usuario.Senha;
 
                 contexto.Usuario.Update(p);
                 await contexto.SaveChangesAsync();

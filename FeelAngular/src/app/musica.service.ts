@@ -1,7 +1,7 @@
 import { Musica } from './Musica';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, retry } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,11 +29,13 @@ export class MusicaService {
         return this.http.post<Musica>(this.url,musica,httpOptions);
       }
       AtualizarUsuario(musica: Musica): Observable<any>{
-        return this.http.put<Musica>(this.url, musica, httpOptions);
+        return this.http.put<Musica>(this.url + '/' + musica.musicaId, JSON.stringify(musica), httpOptions);
       }
-      ExcluirUsuario(musicaId: number) : Observable<any>{
-        const apiUrl = `${this.url}/${musicaId}`;
-        return this.http.delete<number>(apiUrl, httpOptions);
+      ExcluirUsuario(musica: Musica) : Observable<any>{
+        return this.http.delete<Musica>(this.url + '/' + musica.musicaId)
+        .pipe(
+          retry(1)
+        )
       }
 
   }

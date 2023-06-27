@@ -81,6 +81,12 @@ constructor(private musicaService :MusicaService){
       })
     })
   }
+}
+ExcluirMusica(musica : Musica){
+  this.musicaService.ExcluirUsuario(musica).subscribe(() => {
+    this.ExibirFormularioAtt
+  })
+
 
     }
     Voltar(): void{

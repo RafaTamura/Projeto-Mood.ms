@@ -61,20 +61,23 @@ namespace Mood.ms.Controllers
         [HttpPut]
         [Route("musica/{id}")]
         public async Task<IActionResult> PutAsync(
-          [FromServices] Contexto contexto,
-          [FromBody] Musica musica,
-          [FromRoute] int id
-              )
+            [FromServices] Contexto contexto,
+            [FromBody] Musica musica, 
+            [FromRoute] int id)
         {
             if (!ModelState.IsValid) return BadRequest();
             var p = await contexto.Musica
                 .FirstOrDefaultAsync(x => x.MusicaId == id);
             if (p == null)
-                return NotFound("Pessoa não encontrada!");
+                return NotFound("Musica não encontrada!");
 
             try
             {
                 p.MusicaNome = musica.MusicaNome;
+                p.MusicaLink = musica.MusicaLink;
+                p.MusicaArtista = musica.MusicaArtista;
+                p.MusicaEstilo = musica.MusicaEstilo;
+                p.MusicaFeeling = musica.MusicaFeeling;
 
                 contexto.Musica.Update(p);
                 await contexto.SaveChangesAsync();
