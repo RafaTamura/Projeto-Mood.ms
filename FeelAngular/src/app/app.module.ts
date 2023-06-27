@@ -9,13 +9,17 @@ import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponentComponent } from './components/usuario-component/usuario-component.component';
 import { MusicaComponent } from './components/musica/musica.component';
+import { MoodComponent } from './components/mood/mood.component';
+import { SobreComponent } from './components/sobre/sobre.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponentComponent,
-    MusicaComponent
+    MusicaComponent,
+    MoodComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

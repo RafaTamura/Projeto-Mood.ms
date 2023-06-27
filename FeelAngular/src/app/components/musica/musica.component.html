@@ -1,8 +1,8 @@
-<h1>Cadastro de Músicas</h1>
 <div class="container p-5" *ngIf="visibilidadeTabela">
-  <div class="border border-light rounded p-5" >
+  <div class="border border-light rounded p-5 " >
     <div>
 
+      <h1 class="tituloCadastro">Músicas Cadastradas</h1>
       <button type="button" class="btn btn-sm btn-secondary" (click)="ExibirFormularioCadastro()">
         Nova Música
       </button>
@@ -12,28 +12,29 @@
         <th>Nome da Música</th>
         <th>Banda ou Artista</th>
         <th>Estilo</th>
-    <th>Como eu me sinto ouvindo</th>
-    <th>Link para ouvir</th>
-    <th>Ações</th>
-  </tr>
-  <tr *ngFor="let musica of musicas">
-    <td>{{musica.musicaNome}}</td>
-    <td>{{musica.musicaArtista}}</td>
-    <td>{{musica.musicaEstilo}}</td>
-    <td>{{musica.musicaFeeling}}</td>
-    <td>{{musica.musicaLink}}</td>
-    <td>
-      <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
-      <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExcluirMusica(musica)">Excluir</button>
-    </td>
-  </tr>
-</table>
-</div>
+        <th>Como eu me sinto ouvindo</th>
+        <th>Link para ouvir</th>
+        <th>Ações</th>
+      </tr>
+      <tr  *ngFor="let musica of musicas">
+        <td >{{musica.musicaNome}}</td>
+        <td>{{musica.musicaArtista}}</td>
+        <td>{{musica.musicaEstilo}}</td>
+        <td>{{musica.musicaFeeling}}</td>
+        <td>{{musica.musicaLink}}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExcluirMusica(musica)">Excluir</button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
     <div class="col-12 border border-light rounded p-5 shadow" *ngIf="formulario">
+      <h1 class="tituloCadastro">Cadastrar Músicas</h1>
       <h6> {{ tituloFormulario }}</h6>
       <hr />
       <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
