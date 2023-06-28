@@ -22,7 +22,8 @@
  }
  .botaoMood{
   font-size: 100px;
-  margin-left: 300px;
+   margin-left: 50%;
+  margin-right: 50%;
   margin-top: 70px;
   margin-bottom: 70px;
   background: #704B6C;
