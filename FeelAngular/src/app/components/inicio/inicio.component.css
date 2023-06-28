@@ -1,0 +1,29 @@
+.menuCima {
+  text-align: center;
+  color: white;
+
+}
+.menuCima h1{
+  font-size: 5rem;
+}
+ .menuCima h3 {
+  font-size: 2rem;
+ }
+ .bloco{
+  margin-left: 170px;
+  margin-top: 30px;
+ }
+ .blocoEsquerdo{
+    margin-top: 30px;
+ }
+ .primeiroBloco{
+  font-size: 30px;
+  text-align: center;
+ }
+ .botaoMood{
+  font-size: 100px;
+  margin-left: 300px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  background: #704B6C;
+ }

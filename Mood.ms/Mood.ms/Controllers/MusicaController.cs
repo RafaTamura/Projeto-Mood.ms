@@ -36,6 +36,36 @@ namespace Mood.ms.Controllers
 
             return musica == null ? NotFound() : Ok(musica);
         }
+        [HttpGet]
+        [Route("musica/feeling/{feeling}")]
+        public async Task<IActionResult> getByFeelingAsync(
+         [FromServices] Contexto contexto,
+         [FromRoute] string feeling
+             )
+        {
+            var musica = await contexto
+                .Musica
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.MusicaFeeling== feeling.ToLower());
+
+            return musica == null ? NotFound() : Ok(musica);
+        }
+        [HttpGet]
+        [Route("musica/feeling/{feeling}/{estilo}")]
+        public async Task<IActionResult> GetByFeelEstiloAsync(
+     [FromServices] Contexto contexto,
+     [FromRoute] string estilo,
+     [FromRoute] string feeling)
+        {
+            var musicas = await contexto.Musica
+                .AsNoTracking()
+                .Where(m => m.MusicaEstilo.ToLower() == estilo.ToLower() && m.MusicaFeeling.ToLower() == feeling.ToLower())
+                .ToListAsync();
+
+            return Ok(musicas);
+        }
+
+
         [HttpPost]
         [Route("musica")]
         public async Task<IActionResult> PostAsync([FromServices] Contexto contexto, [FromBody] Musica musica)

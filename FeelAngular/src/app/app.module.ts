@@ -11,6 +11,7 @@ import { UsuarioComponentComponent } from './components/usuario-component/usuari
 import { MusicaComponent } from './components/musica/musica.component';
 import { MoodComponent } from './components/mood/mood.component';
 import { SobreComponent } from './components/sobre/sobre.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SobreComponent } from './components/sobre/sobre.component';
     UsuarioComponentComponent,
     MusicaComponent,
     MoodComponent,
-    SobreComponent
+    SobreComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

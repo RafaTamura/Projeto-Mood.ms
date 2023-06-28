@@ -4,12 +4,14 @@ import { UsuarioComponentComponent } from './components/usuario-component/usuari
 import { MusicaComponent } from './components/musica/musica.component';
 import { MoodComponent } from './components/mood/mood.component';
 import { SobreComponent } from './components/sobre/sobre.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
   {path: 'musicas', component: MusicaComponent},
   {path: 'usuarios', component: UsuarioComponentComponent},
   {path: 'mood', component: MoodComponent},
-  {path: 'sobre', component: SobreComponent}
+  {path: 'sobre', component: SobreComponent},
+  {path: '', component: InicioComponent}
 
 
 ];
