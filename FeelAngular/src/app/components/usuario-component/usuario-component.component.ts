@@ -13,25 +13,81 @@ import { Usuario } from 'src/app/Usuario';
 export class UsuarioComponentComponent implements OnInit {
   formulario: any ;
   tituloFormulario: string;
+  usuarios : Usuario[];
+  visibilidadeTabela : boolean = true
+  visibilidadeFormulario : boolean = false
 
 constructor(private usuarioService :UsuarioService){
 
 }
 // onde os componentes são inicializados
   ngOnInit(): void {
-    this.tituloFormulario = 'Novo Usuario'
-    this.formulario = new FormGroup({
+    this.usuarioService.PegarTodos().subscribe(resultado =>
+      this.usuarios = resultado)
 
-      id: new FormControl(0),
-      nome: new FormControl(null),
-      senha: new FormControl(null),
-      email: new FormControl(null)
-    });
+
+    };
+  ExibirFormularioCadastro(): void{
+      this.visibilidadeFormulario = true;
+      this.visibilidadeTabela = false;
+      this.tituloFormulario = 'Novo Usuário'
+      this.formulario = new FormGroup({
+
+        id: new FormControl(0),
+        nome: new FormControl(null),
+        email: new FormControl(null),
+        senha: new FormControl(null)
+      });
     }
+
+    ExibirFormularioAtt(id: number):void{
+      this.visibilidadeFormulario=true;
+      this.visibilidadeTabela=false;
+
+      this.usuarioService.PegarPeloId(id).subscribe(resultado => {
+        this.tituloFormulario = `Atualizar perfil do ${resultado.nome}`
+
+        this.formulario = new FormGroup({
+          id: new FormControl(resultado.id),
+          nome: new FormControl(resultado.nome),
+          email: new FormControl(resultado.email),
+          senha: new FormControl(resultado.senha)
+  })
+})
+}
     EnviarFormulario(): void{
       const usuario : Usuario = this.formulario.value;
-      this.usuarioService.SalvarUsuario(usuario).subscribe()
-  }
-  }
+      if(usuario.id > 0){
+        this.usuarioService.AtualizarUsuario(usuario).subscribe((resultado) =>{
+          this.visibilidadeFormulario = false;
+          this.visibilidadeTabela = true;
 
+          alert('Usuário Atualizada com Sucesso');
+          this.usuarioService.PegarTodos().subscribe((registros)=>{
+            this.usuarios = registros;
+          })
+        })
+      } else {
+      this.usuarioService.SalvarUsuario(usuario).subscribe((resultado) => {
+        this.visibilidadeFormulario = false;
+        this.visibilidadeTabela = true;
 
+        alert('Usuário Cadastrado com Sucesso');
+        this.usuarioService.PegarTodos().subscribe(registros=>{
+          this.usuarios = registros;
+    })
+  })
+}
+    }
+    ExcluirUsuario(usuario : Usuario){
+      self.location.reload();
+      this.usuarioService.ExcluirUsuario(usuario).subscribe(() => {
+        this.ExibirFormularioAtt
+      })
+  }
+  Voltar(): void{
+    this.visibilidadeTabela = true;
+    this.visibilidadeFormulario = false;
+    }
+
+}

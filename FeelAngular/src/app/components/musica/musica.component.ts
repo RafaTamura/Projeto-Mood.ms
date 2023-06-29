@@ -82,6 +82,7 @@ constructor(private musicaService :MusicaService){
   }
 }
 ExcluirMusica(musica : Musica){
+  self.location.reload();
   this.musicaService.ExcluirUsuario(musica).subscribe(() => {
     this.ExibirFormularioAtt
   })

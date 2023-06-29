@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from './Usuario';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':'application/json'
@@ -19,19 +19,20 @@ export class UsuarioService {
     PegarTodos(): Observable<Usuario[]>{
       return this.http.get<Usuario[]>(this.url);
     }
-    PegarPeloId(usuarioId: number): Observable<Usuario>{
-      const apiUrl = `${this.url}/${usuarioId}`;
+    PegarPeloId(id: number): Observable<Usuario>{
+      const apiUrl = `${this.url}/${id}`;
       return this.http.get<Usuario>(apiUrl)
     }
     SalvarUsuario(usuario: Usuario): Observable<any>{
       return this.http.post<Usuario>(this.url,usuario,httpOptions);
     }
     AtualizarUsuario(usuario: Usuario): Observable<any>{
-      return this.http.put<Usuario>(this.url, usuario, httpOptions);
+      return this.http.put<Usuario>(this.url + '/' + usuario.id, JSON.stringify(usuario), httpOptions);
     }
-    ExcluirUsuario(usuarioId: number) : Observable<any>{
-      const apiUrl = `${this.url}/${usuarioId}`;
-      return this.http.delete<number>(apiUrl, httpOptions);
+    ExcluirUsuario(usuario: Usuario) : Observable<any>{
+      return this.http.delete<Usuario>(this.url + '/' + usuario.id)
+      .pipe(
+        retry(1))
     }
 
 }

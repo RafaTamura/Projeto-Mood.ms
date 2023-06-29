@@ -1,5 +1,34 @@
 
-<div class="container p-5">
+<div class="container p-5" *ngIf="visibilidadeTabela">
+  <div class="border border-light rounded p-5 " >
+    <div>
+
+      <h1 class="tituloCadastro">Perfil</h1>
+      <button type="button" class="btn btn-sm btn-secondary" (click)="ExibirFormularioCadastro()">
+        Novo Usuário
+      </button>
+
+    </div>
+    <table class="table table-striped table-hover table-sm" *ngIf="usuarios">
+      <tr class="thead-light">
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Senha</th>
+        <th>Ações</th>
+      </tr>
+      <tr  *ngFor="let usuario of usuarios">
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.senha}}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtt(usuario.id)">Atualizar</button>
+          <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExcluirUsuario(usuario)">Excluir</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
     <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
       <h6> {{ tituloFormulario }}</h6>
@@ -19,9 +48,8 @@
         </div>
         <div class="container">
           <div class="row">
-            <button type="submit"class="btn btn-sm btn-outline-secundary"> Salvar </button>
-          </div>
-          <div class="pl-1"> <button type="button" class="btn btn-sm btn-light"> Voltar</button>
+            <button type="submit" class="btn btn-sm btn-outline-secundary btn-dark botaoMusica"> Enviar </button>
+            <button type="button" class="btn btn-sm btn-outline-secundary btn-dark botaoMusica" (click)="Voltar()" > Voltar</button>
           </div>
         </div>
       </form>
