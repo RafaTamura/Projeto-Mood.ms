@@ -39,4 +39,7 @@ import { MoodService } from 'src/app/mood.service';
             this.musicas = [resultado];
           });
         }
+        PesquisarYou():void{
+            alert("funfou")
+        }
       }
