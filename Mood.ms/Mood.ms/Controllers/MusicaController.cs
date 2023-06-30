@@ -43,12 +43,12 @@ namespace Mood.ms.Controllers
          [FromRoute] string feeling
              )
         {
-            var musica = await contexto
-                .Musica
+            var musica = await contexto.Musica
                 .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.MusicaFeeling== feeling.ToLower());
+                .Where(p => p.MusicaFeeling.ToLower() == feeling.ToLower())
+                .ToListAsync();
 
-            return musica == null ? NotFound() : Ok(musica);
+            return musica.Count == 0 ? NotFound() : Ok(musica);
         }
         [HttpGet]
         [Route("musica/feeling/{feeling}/{estilo}")]

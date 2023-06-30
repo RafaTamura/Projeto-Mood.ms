@@ -13,7 +13,8 @@ import { MoodService } from 'src/app/mood.service';
   export class MoodComponent implements OnInit{
     formulario: FormGroup ;
     tituloFormulario: string;
-    musicas : Musica[];
+    musicas : Musica[] = [];
+
 
 
   constructor(private moodService :MoodService){
@@ -21,25 +22,24 @@ import { MoodService } from 'src/app/mood.service';
       musicaFeeling: new FormControl('')
     });
     this.tituloFormulario = 'Buscar por Feeling';
-    this.musicas = [];
-
   }
   // onde os componentes são inicializados
     ngOnInit(): void {
-      this.formulario = new FormGroup({
-        musicaFeeling: new FormControl('') })
       this.moodService.PegarTodos().subscribe(resultado =>
-        this.musicas = resultado)
-
-
+        this.musicas = resultado);
       }
+
+
       EnviarFeel() : void{
         const feeling: string = this.formulario.value.musicaFeeling;
           this.moodService.ProcurarFeel(feeling).subscribe((resultado) => {
             this.musicas = [resultado];
           });
         }
-        PesquisarYou():void{
-            alert("funfou")
         }
-      }
+
+
+      //   PesquisarYou():void{
+      //       alert("funfou")
+      //   }
+      // }}

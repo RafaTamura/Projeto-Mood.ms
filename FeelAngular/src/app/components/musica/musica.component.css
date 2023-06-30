@@ -1,16 +1,23 @@
 *{
-  color: #fff;
   text-align: center;
 
 }
-.botaoMusica{
-  margin-top: 10px;
 
-}
 #musicasCad{
   color:black;
 }
 .tituloCadastro{
   font-size: 3rem;
-
+  color: #fff;
+}
+.dadosCadastro{
+  color: #fff;
+  font-size: 1.2rem;
+}
+.formLetra{
+  font-size: 1.2rem;
+}
+.tabelaDados{
+  background:
+   rgba(255, 255, 255, 0.295) ;
 }

@@ -30,7 +30,7 @@ constructor(private musicaService :MusicaService){
     ExibirFormularioCadastro(): void{
       this.visibilidadeFormulario = true;
       this.visibilidadeTabela = false;
-      this.tituloFormulario = 'Nova Musica'
+      this.tituloFormulario = 'Nova Música'
       this.formulario = new FormGroup({
 
         musicaId: new FormControl(0),

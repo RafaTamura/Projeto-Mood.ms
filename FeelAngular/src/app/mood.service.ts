@@ -26,7 +26,7 @@ export class MoodService {
       );
   }
   ProcurarFeel(musicaFeeling: string): Observable<Musica> {
-    const apiUrl = `${this.url}/feeling/${musicaFeeling}`; // Inclua a rota "feeling" antes do parâmetro
-  return this.http.get<Musica>(apiUrl).pipe(retry(3));
+    const apiUrl = `${this.url}/feeling/${musicaFeeling}`;
+    return this.http.get<Musica>(apiUrl).pipe(retry(3));
       }
 }
