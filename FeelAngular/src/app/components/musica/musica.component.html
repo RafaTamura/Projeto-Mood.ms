@@ -23,9 +23,10 @@
         <td class="formLetra shadow border ">{{musica.musicaArtista}}</td>
         <td class="formLetra shadow border ">{{musica.musicaEstilo}}</td>
         <td class="formLetra shadow border ">{{musica.musicaFeeling}}</td>
-        <td class="formLetra shadow border ">{{musica.musicaLink}}</td>
-        <td>
-          <button type="button" class="btn btn-sm bg-info" (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
+        <td class="border shadow">
+          <button (click)="redirectLink(musica.musicaLink)" class="btn btn-dark">Ouvir agora</button>
+        </td>
+         <td class="shadow border"> <button type="button" class="btn btn-sm bg-info " (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
           <button type="button" class="btn btn-sm bg-danger" (click)="ExcluirMusica(musica)">Excluir</button>
         </td>
       </tr>

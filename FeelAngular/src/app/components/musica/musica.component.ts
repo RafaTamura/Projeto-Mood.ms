@@ -93,5 +93,8 @@ ExcluirMusica(musica : Musica){
       this.visibilidadeTabela = true;
       this.visibilidadeFormulario = false;
       }
+      redirectLink(link: string) {
+        window.open(link);
+      }
 
   }

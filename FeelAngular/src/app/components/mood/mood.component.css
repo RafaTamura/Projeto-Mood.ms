@@ -16,9 +16,12 @@
   animation: typing 2s steps(27),
   blinking 0.5s infinite step-end alternate;
 }
+.moodRes{
+  font-size: 1.5rem;
+}
 .moodLetra{
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .formLetra{
   font-size: 1.2rem;

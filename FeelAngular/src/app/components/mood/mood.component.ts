@@ -1,45 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Musica } from 'src/app/Musica';
-import { MoodService } from 'src/app/mood.service';
-
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Importe o FormsModule
 
 @Component({
   selector: 'app-mood',
   templateUrl: './mood.component.html',
   styleUrls: ['./mood.component.css']
 })
+export class MoodComponent implements OnInit {
+  searchTerm: string;
+  results: any[] = [];
 
-  export class MoodComponent implements OnInit{
-    formulario: FormGroup ;
-    tituloFormulario: string;
-    musicas : Musica[] = [];
+  constructor(private http: HttpClient) {}
 
+  ngOnInit() {}
 
-
-  constructor(private moodService :MoodService){
-    this.formulario = new FormGroup({
-      musicaFeeling: new FormControl('')
-    });
-    this.tituloFormulario = 'Buscar por Feeling';
+  search() {
+    if (this.searchTerm) {
+      const apiUrl = 'https://localhost:7243/api/Musica/musica/feeling/'; // Substitua pela URL da sua API
+      this.http.get<any[]>(`${apiUrl}${this.searchTerm}`).subscribe((data) => {
+        this.results = data;
+      });
+    } else {
+      this.results = [];
+    }
   }
-  // onde os componentes são inicializados
-    ngOnInit(): void {
-      this.moodService.PegarTodos().subscribe(resultado =>
-        this.musicas = resultado);
-      }
-
-
-      EnviarFeel() : void{
-        const feeling: string = this.formulario.value.musicaFeeling;
-          this.moodService.ProcurarFeel(feeling).subscribe((resultado) => {
-            this.musicas = [resultado];
-          });
-        }
-        }
-
-
-      //   PesquisarYou():void{
-      //       alert("funfou")
-      //   }
-      // }}
+  redirectLink(link: string) {
+    window.open(link);
+  }
+}

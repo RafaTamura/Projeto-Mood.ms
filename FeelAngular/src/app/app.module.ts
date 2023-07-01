@@ -6,12 +6,13 @@ import { AppComponent } from './app.component';
 import { UsuarioService } from './usuario.service';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioComponentComponent } from './components/usuario-component/usuario-component.component';
 import { MusicaComponent } from './components/musica/musica.component';
 import { MoodComponent } from './components/mood/mood.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 
 
 @NgModule({
@@ -21,14 +22,16 @@ import { InicioComponent } from './components/inicio/inicio.component';
     MusicaComponent,
     MoodComponent,
     SobreComponent,
-    InicioComponent
+    InicioComponent,
+    CustomFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [HttpClientModule, UsuarioService],
   bootstrap: [AppComponent]
