@@ -1,17 +1,38 @@
-<div class="container p-5">
+<div class="container p-5" >
   <div class="row">
     <div class="col-12 border border-light rounded p-5 shadow">
       <h1 class="moodTitulo">Como você está se sentindo?</h1>
       <hr />
+
+<!-- Botão para fazer o search da emoção -->
 <div>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Conte o que você sente..." class="moodRes form-control form-control-md" />
-  <button class="btn btn-lg btn-outline-light  mt-4" (click)="search()">Pesquisar</button>
+  <input type="text" [(ngModel)]="searchFeel" placeholder="Conte o que você sente..." class="moodRes form-control form-control-md" />
+  <button type="button" class="btn btn-lg btn-outline-light  mt-4" (click)="Search()">Pesquisar</button>
+  <button type="button" class="btn btn-lg btn-outline-light  mt-4" (click)="Voltar()">Voltar</button>
 </div>
-<div *ngIf="results">
-  <h3 class="moodLetra mt-4">Resultados:</h3>
-  <table class="  table-sm border border-light  mt-5 col-12 shadow tabelaDados">
+<!-- Fim do botão -->
+
+<!-- Mostrar emoções já cadastradas  -->
+<div *ngIf="visibilidadeEmocao">
+
+  <h3 class="moodLetra mt-4">Suas emoções cadastradas:</h3>
+
+  <div class="col-12">
+    <ul class="list-group" *ngFor="let musica of musicas">
+      <li class="border list-group-item  shadow moodEmocao">{{ musica.musicaFeeling }}</li>
+    </ul>
+
+  </div>
+</div>
+<!-- Fim da tabela de emoções -->
+
+<!-- Tabela com os resultados das músicas e emoções -->
+<div *ngIf="visibilidadeResultados">
+  <div *ngIf="results">
+    <h3 class="moodLetra mt-4">Resultados:</h3>
+  <table class="border border-light  mt-5 col-12 shadow tabelaDados">
     <thead>
-      <tr class="thead-light formLetra">
+      <tr class="thead-lightmoodRes">
         <th>Nome da Música</th>
         <th>Banda ou Artista</th>
         <th>Estilo</th>
@@ -19,6 +40,8 @@
         <th>Link para Ouvir</th>
       </tr>
     </thead>
+
+    <!-- Resultados -->
     <tbody>
       <tr *ngFor="let musica of results">
         <td class="border shadow moodRes">{{ musica.musicaNome }}</td>
@@ -26,9 +49,15 @@
         <td class="border shadow moodRes">{{ musica.musicaEstilo }}</td>
         <td class="border shadow moodRes">{{ musica.musicaFeeling }}</td>
         <td class="border shadow">
-          <button (click)="redirectLink(musica.musicaLink)" class="btn btn-primary">Ouvir agora</button>
+          <button (click)="redirectLink(musica.musicaLink)" class="btn btn-dark">Ouvir agora</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+</div>
+</div>
+<!-- fim da row -->
+</div>
+<!-- fim do container -->
 </div>

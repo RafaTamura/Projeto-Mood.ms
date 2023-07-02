@@ -10,3 +10,15 @@
 .nav-link:hover{
   color: rgb(255, 255, 98) !important;
 }
+.menuClasse{
+  margin: auto;
+
+}
+.menuSus{
+  background: linear-gradient(
+      to top,
+      rgba(103, 2, 90, 0.8)
+     ,
+     rgba(78, 2, 67, 0.8) 90%
+    )
+}

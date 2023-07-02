@@ -8,32 +8,41 @@
       </button>
     </div>
   </div>
-  <div class="tabelaDados border border-dark shadow mt-5 rounded p-5 " >
-    <table class="table table-striped table-hover table-md" *ngIf="musicas">
-      <tr class="thead-light">
-        <th class="formLetra pt-3">Nome da Música</th>
-        <th class="formLetra pt-3">Banda ou Artista</th>
-        <th class="formLetra pt-3">Estilo</th>
-        <th class="formLetra pt-3">Como eu me sinto ouvindo</th>
-        <th class="formLetra pt-3">Link para ouvir</th>
-        <th class="formLetra pt-3">Ações</th>
-      </tr>
+
+    <table class="border rounded border-light shadow mt-5 p-5 col-12 tabelaDados" *ngIf="musicas">
+      <thead>
+
+        <tr class="formLetra thead-light">
+          <th >Nome da Música</th>
+          <th >Banda ou Artista</th>
+          <th >Estilo</th>
+          <th >Como eu me sinto ouvindo</th>
+          <th >Link para ouvir</th>
+          <th >Ações</th>
+        </tr>
+      </thead>
+
+<!-- Exibe as músicas já cadastradas -->
+<tbody>
+
       <tr  *ngFor="let musica of musicas">
         <td class="formLetra shadow border ">{{musica.musicaNome}}</td>
         <td class="formLetra shadow border ">{{musica.musicaArtista}}</td>
         <td class="formLetra shadow border ">{{musica.musicaEstilo}}</td>
         <td class="formLetra shadow border ">{{musica.musicaFeeling}}</td>
         <td class="border shadow">
-          <button (click)="redirectLink(musica.musicaLink)" class="btn btn-dark">Ouvir agora</button>
+          <button (click)="redirectLink(musica.musicaLink)"class="btn btn-dark btn-lg">Ouvir agora</button>
         </td>
-         <td class="shadow border"> <button type="button" class="btn btn-sm bg-info " (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
+         <td class="shadow border">
+          <button type="button" class="btn btn-sm bg-info " (click)="ExibirFormularioAtt(musica.musicaId)">Atualizar</button>
           <button type="button" class="btn btn-sm bg-danger" (click)="ExcluirMusica(musica)">Excluir</button>
         </td>
       </tr>
+    </tbody>
+
     </table>
 </div>
-</div>
-
+<!-- Formulario para cadastrar as musicas -->
 <div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
     <div class="col-12 border border-light rounded p-5 shadow" *ngIf="formulario">

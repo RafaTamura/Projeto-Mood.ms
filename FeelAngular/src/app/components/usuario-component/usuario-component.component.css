@@ -1,4 +1,8 @@
 
+
+.content {
+  flex: 1;
+}
 .dadosCadastro{
   color: #fff;
   font-size: 1.2rem;
@@ -8,3 +12,6 @@
   color: #fff;
 }
 
+.usuarioImagem{
+  width: 30%;
+}

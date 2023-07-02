@@ -4,7 +4,7 @@
 
 .tabelaDados{
   background:
-   rgba(255, 255, 255, 0.295) ;
+  rgba(255, 255, 255, 0.642) ;
 
 }
 .moodTitulo{
@@ -23,6 +23,24 @@
   color: #fff;
   font-size: 2rem;
 }
+.moodEmocao{
+  font-size: 1.5rem;
+
+  border-radius: 40px;
+  margin: 10px;
+  background : linear-gradient(
+    to right,
+   rgba(68, 222, 117),
+    rgba(255, 0, 0, 0) 70.71%
+  ),
+  linear-gradient(
+    to left,
+    rgba(179, 255, 182),
+    rgba(114, 218, 105, 0) 90.71%
+  );
+
+}
+
 .formLetra{
   font-size: 1.2rem;
 }

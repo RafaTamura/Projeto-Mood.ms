@@ -1,5 +1,6 @@
 
-<div class="container p-5" *ngIf="visibilidadeTabela">
+<div class="container content p-5" *ngIf="visibilidadeTabela">
+  <div class="row">
   <div class="border col-6 border-light rounded p-5 " >
     <div>
 
@@ -9,23 +10,26 @@
       </button>
 
     </div>
-    <table class="table table-striped table-hover table-sm" *ngIf="usuarios">
-      <tr class="thead-light">
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Senha</th>
-        <th>Ações</th>
+
+  </div>
+  <div class="col-6 text-center border rounded border-light">
+    <img class="usuarioImagem mt-3 " src="../../../assets/img/usuario.png">
+      <table class="table mt-3">
+      <tr class="thead-light ">
+        <th class="dadosCadastro">Nome</th>
+        <th class="dadosCadastro">Email</th>
       </tr>
       <tr  *ngFor="let usuario of usuarios">
-        <td>{{usuario.nome}}</td>
-        <td>{{usuario.email}}</td>
-        <td>{{usuario.senha}}</td>
-        <td>
-          <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtt(usuario.id)">Atualizar</button>
-          <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExcluirUsuario(usuario)">Excluir</button>
-        </td>
+        <td  class=" border border-light dadosCadastro">{{usuario.nome}}</td>
+        <td  class="border border-light dadosCadastro">{{usuario.email}}</td>
+        <button type="button" class="btn btn-sm btn-info " (click)="ExibirFormularioAtt(usuario.id)">Atualizar</button>
+        <button type="button" class="btn btn-sm btn-danger " (click)="ExcluirUsuario(usuario)">Excluir</button>
       </tr>
     </table>
+
+
+
+  </div>
   </div>
 </div>
 <div class="container p-5" *ngIf="visibilidadeFormulario">

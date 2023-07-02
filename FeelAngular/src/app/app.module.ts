@@ -12,7 +12,6 @@ import { MusicaComponent } from './components/musica/musica.component';
 import { MoodComponent } from './components/mood/mood.component';
 import { SobreComponent } from './components/sobre/sobre.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 
 
 @NgModule({
@@ -23,7 +22,6 @@ import { CustomFilterPipe } from './custom-filter-pipe.pipe';
     MoodComponent,
     SobreComponent,
     InicioComponent,
-    CustomFilterPipe
   ],
   imports: [
     BrowserModule,
