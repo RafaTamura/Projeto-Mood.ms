@@ -1,9 +1,9 @@
-
-
-  footer {
+footer {
     bottom:0;
     left:0;
 }
+
+/* Estilizar o menu Suspenso */
 .navbar-brand{
   color: white !important;
 }
@@ -21,4 +21,8 @@
      ,
      rgba(78, 2, 67, 0.8) 90%
     )
+}
+.editarImagem{
+  width: 50px;
+  height: 50px;
 }

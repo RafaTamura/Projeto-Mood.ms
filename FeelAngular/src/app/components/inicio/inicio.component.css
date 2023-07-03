@@ -1,8 +1,7 @@
-
+/* Estilizando letras */
 .menuCima {
   text-align: center;
   color: white;
-
 }
 .menuCima h1{
   font-size: 5rem;
@@ -10,21 +9,25 @@
  .menuCima h3 {
   font-size: 2rem;
  }
+
+/* Estilizando os cards */
  .bloco{
   margin-left: 170px;
   margin-top: 30px;
  }
  .blocoEsquerdo{
     margin-top: 30px;
+    margin-left: 20px;
  }
  .primeiroBloco{
   font-size: 30px;
   text-align: center;
  }
+
+ /* Estilizando o botao */
  .botaoMood{
   font-size: 100px;
-   margin-left: 50%;
-  margin-right: 50%;
-  margin-bottom: 70px;
+
+  margin: 20px 53% 70px 47%;
  }
 

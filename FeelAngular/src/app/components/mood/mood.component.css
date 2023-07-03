@@ -7,6 +7,8 @@
   rgba(255, 255, 255, 0.642) ;
 
 }
+
+/* EStilizando as fontes */
 .moodTitulo{
   color: #fff;
   font-size: 3rem;
@@ -19,13 +21,17 @@
 .moodRes{
   font-size: 1.5rem;
 }
+.formLetra{
+  font-size: 1.2rem;
+}
 .moodLetra{
   color: #fff;
   font-size: 2rem;
 }
+
+/* Estilizando a tabela */
 .moodEmocao{
   font-size: 1.5rem;
-
   border-radius: 40px;
   margin: 10px;
   background : linear-gradient(
@@ -41,9 +47,8 @@
 
 }
 
-.formLetra{
-  font-size: 1.2rem;
-}
+
+/* Animacao Digitando */
 @keyframes typing{
   from {
     width: 0;

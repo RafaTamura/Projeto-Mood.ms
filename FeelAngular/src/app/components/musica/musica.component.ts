@@ -20,13 +20,14 @@ export class MusicaComponent implements OnInit{
 constructor(private musicaService :MusicaService){
 
 }
-// onde os componentes são inicializados
+
   ngOnInit(): void {
     this.musicaService.PegarTodos().subscribe(resultado =>
       this.musicas = resultado)
 
 
     }
+// Funcao para exibir o formulario de cadastro
     ExibirFormularioCadastro(): void{
       this.visibilidadeFormulario = true;
       this.visibilidadeTabela = false;
@@ -41,6 +42,8 @@ constructor(private musicaService :MusicaService){
         musicaLink: new FormControl(null)
       });
     }
+
+// Funcao para Atualizar as musicas, exibe o formulário preenchido
     ExibirFormularioAtt(musicaId: number):void{
       this.visibilidadeFormulario=true;
       this.visibilidadeTabela=false;
@@ -57,6 +60,8 @@ constructor(private musicaService :MusicaService){
         })
       })
     }
+
+// Função para enviar o formulario com os dados
     EnviarFormulario(): void{
       const musica : Musica = this.formulario.value;
       if(musica.musicaId > 0){
@@ -81,6 +86,8 @@ constructor(private musicaService :MusicaService){
     })
   }
 }
+
+// Funcao para excluir a musica do banco de dados
 ExcluirMusica(musica : Musica){
   self.location.reload();
   this.musicaService.ExcluirUsuario(musica).subscribe(() => {
@@ -89,13 +96,14 @@ ExcluirMusica(musica : Musica){
 
 
     }
-    Voltar(): void{
-      this.visibilidadeTabela = true;
-      this.visibilidadeFormulario = false;
+// Funcao para retornar, ele troca as exibicoes das paginas
+Voltar(): void{
+  this.visibilidadeTabela = true;
+  this.visibilidadeFormulario = false;
       }
-
-      redirectLink(link: string) {
-        window.open(link);
-      }
+// Funcao para recarregar a pagina
+  redirectLink(link: string) {
+    window.open(link);
+  }
 
   }

@@ -1,17 +1,17 @@
 <div class="container p-5" >
   <div class="row">
+
+<!-- Titulo -->
     <div class="col-12 border border-light rounded p-5 shadow">
       <h1 class="moodTitulo">Como você está se sentindo?</h1>
       <hr />
 
 <!-- Botão para fazer o search da emoção -->
-<div>
+<div >
   <input type="text" [(ngModel)]="searchFeel" placeholder="Conte o que você sente..." class="moodRes form-control form-control-md" />
   <button type="button" class="btn btn-lg btn-outline-light  mt-4" (click)="Search()">Pesquisar</button>
-  <button type="button" class="btn btn-lg btn-outline-light  mt-4" (click)="Voltar()">Voltar</button>
 </div>
 <!-- Fim do botão -->
-
 <!-- Mostrar emoções já cadastradas  -->
 <div *ngIf="visibilidadeEmocao">
 
@@ -30,11 +30,11 @@
 <div *ngIf="visibilidadeResultados">
   <div *ngIf="results">
     <h3 class="moodLetra mt-4">Resultados:</h3>
-  <table class="border border-light  mt-5 col-12 shadow tabelaDados">
-    <thead>
-      <tr class="thead-lightmoodRes">
-        <th>Nome da Música</th>
-        <th>Banda ou Artista</th>
+    <table class="border border-light  mt-5 col-12 shadow tabelaDados">
+      <thead>
+        <tr class="thead-lightmoodRes">
+          <th>Nome da Música</th>
+          <th>Banda ou Artista</th>
         <th>Estilo</th>
         <th>Como eu me sinto ouvindo</th>
         <th>Link para Ouvir</th>
@@ -54,6 +54,7 @@
       </tr>
     </tbody>
   </table>
+  <button type="button" class="btn btn-lg btn-outline-light  mt-4" (click)="Voltar()">Voltar</button>
 </div>
 </div>
 </div>

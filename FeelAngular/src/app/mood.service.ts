@@ -20,27 +20,13 @@ export class MoodService {
 
   constructor(private http: HttpClient) { }
 
-  PegarPeloId(musicaId: number): Observable<Musica>{
-    const apiUrl = `${this.url}/${musicaId}`;
-    return this.http.get<Musica>(apiUrl)
-  }
-
+// Funcao para retornar todos os dados das musicas da API (GET)
   PegarTodos(): Observable<Musica[]> {
     return this.http.get<Musica[]>(this.url)
-      .pipe(
-        retry(3)
-      );
-  }
-  SalvarUsuario(musica: Musica): Observable<any>{
-    return this.http.post<Musica>(this.url,musica,httpOptions);
-  }
-  AtualizarUsuario(musica: Musica): Observable<any>{
-    return this.http.put<Musica>(this.url + '/' + musica.musicaId, JSON.stringify(musica), httpOptions);
-  }
-  ExcluirUsuario(musica: Musica) : Observable<any>{
-    return this.http.delete<Musica>(this.url + '/' + musica.musicaId)
     .pipe(
-      retry(1)
-    )
+      retry(3)
+      );
+    }
+
 }
-}
+

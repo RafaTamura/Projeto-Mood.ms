@@ -7,8 +7,11 @@ namespace Mood.ms.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class MusicaController : ControllerBase
     {
+    //Consulta todos da Database (GET)
+
         [HttpGet]
         [Route("musica")]
         public async Task<IActionResult> getAllAsync(
@@ -21,7 +24,7 @@ namespace Mood.ms.Controllers
 
             return musica == null ? NotFound() : Ok(musica);
         }
-
+        //Consulta pelo ID (GET)
         [HttpGet]
         [Route("musica/{id}")]
         public async Task<IActionResult> getByIdAsync(
@@ -36,6 +39,7 @@ namespace Mood.ms.Controllers
 
             return musica == null ? NotFound() : Ok(musica);
         }
+    // Consulta pelo feeling no banco de dados (GET)
         [HttpGet]
         [Route("musica/feeling/{feeling}")]
         public async Task<IActionResult> getByFeelingAsync(
@@ -50,6 +54,7 @@ namespace Mood.ms.Controllers
 
             return musica.Count == 0 ? NotFound() : Ok(musica);
         }
+    // Consulta pelo feeling e esilo musical no banco de dados (GET)
         [HttpGet]
         [Route("musica/feeling/{feeling}/{estilo}")]
         public async Task<IActionResult> GetByFeelEstiloAsync(
@@ -65,7 +70,7 @@ namespace Mood.ms.Controllers
             return Ok(musicas);
         }
 
-
+     //Inserir dados no Banco de Dados (POST)
         [HttpPost]
         [Route("musica")]
         public async Task<IActionResult> PostAsync([FromServices] Contexto contexto, [FromBody] Musica musica)
@@ -87,7 +92,7 @@ namespace Mood.ms.Controllers
             }
         }
 
-
+     // Atualiza os dados no Banco de dados (PUT)
         [HttpPut]
         [Route("musica/{id}")]
         public async Task<IActionResult> PutAsync(
@@ -115,6 +120,8 @@ namespace Mood.ms.Controllers
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
+
+    // Exclui o dado do banco de dados
         [HttpDelete]
         [Route("musica/{id}")]
         public async Task<IActionResult> DeleteAsync(

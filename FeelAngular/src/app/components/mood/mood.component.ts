@@ -3,17 +3,18 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Musica } from 'src/app/Musica';
+import { Usuario } from 'src/app/Usuario';
 
 @Component({
   selector: 'app-mood',
   templateUrl: './mood.component.html',
   styleUrls: ['./mood.component.css']
 })
+
 export class MoodComponent implements OnInit {
   searchFeel: string;
   results: any[] = [];
   musicas : Musica[];
-  emocoes : string[];
   visibilidadeEmocao: boolean = true;
   visibilidadeResultados: boolean = false;
 
@@ -27,6 +28,7 @@ export class MoodComponent implements OnInit {
      this.musicas = resultado)
 
   }
+
 // Função para buscar o Sentimento cadastrado
   Search() {
     this.visibilidadeEmocao = false;

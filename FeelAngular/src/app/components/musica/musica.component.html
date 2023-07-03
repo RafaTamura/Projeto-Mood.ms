@@ -9,6 +9,7 @@
     </div>
   </div>
 
+<!-- Titulo das musicas cadastradas -->
     <table class="border rounded border-light shadow mt-5 p-5 col-12 tabelaDados" *ngIf="musicas">
       <thead>
 
@@ -42,13 +43,16 @@
 
     </table>
 </div>
-<!-- Formulario para cadastrar as musicas -->
+<!-- Fim do container das musicas cadastradas -->
+
+<!-- Segundo container para cadastrar musicas -->
 <div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
     <div class="col-12 border border-light rounded p-5 shadow" *ngIf="formulario">
       <h1 class="tituloCadastro">Cadastrar Músicas</h1>
       <h6 class="dadosCadastro"> {{ tituloFormulario }}</h6>
       <hr />
+<!-- Formulario para cadastrar as musicas -->
       <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
         <div class="form-group mt-3 dadosCadastro">
           <label > Nome da Música </label>
@@ -77,6 +81,7 @@
           </div>
           </div>
       </form>
+<!-- Fim do formulario para cadastrar as musicas -->
     </div>
   </div>
-
+</div>

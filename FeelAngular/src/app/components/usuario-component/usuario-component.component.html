@@ -1,41 +1,49 @@
-
-<div class="container content p-5" *ngIf="visibilidadeTabela">
-  <div class="row">
-  <div class="border col-6 border-light rounded p-5 " >
-    <div>
-
-      <h1 class="tituloCadastro">Perfil</h1>
-      <button type="button" class="btn btn-lg mt-3 btn-dark" (click)="ExibirFormularioCadastro()">
-        Novo Usuário
-      </button>
-
+<!-- Caso o usuário não esteja cadastrado, mostra a opção de cadastrar o usuario -->
+<div *ngIf="!usuarioCadastrado">
+  <div class="container p-5" *ngIf="visibilidadeTabela">
+    <div class="row">
+      <div class="border col-6 border-light rounded p-5">
+        <div>
+          <h1 class="tituloCadastro">Perfil</h1>
+          <button type="button" class="btn btn-lg mt-3 btn-dark" (click)="ExibirFormularioCadastro()">
+            Novo Usuário
+          </button>
+        </div>
+      </div>
     </div>
-
-  </div>
-  <div class="col-6 text-center border rounded border-light">
-    <img class="usuarioImagem mt-3 " src="../../../assets/img/usuario.png">
-      <table class="table mt-3">
-      <tr class="thead-light ">
-        <th class="dadosCadastro">Nome</th>
-        <th class="dadosCadastro">Email</th>
-      </tr>
-      <tr  *ngFor="let usuario of usuarios">
-        <td  class=" border border-light dadosCadastro">{{usuario.nome}}</td>
-        <td  class="border border-light dadosCadastro">{{usuario.email}}</td>
-        <button type="button" class="btn btn-sm btn-info " (click)="ExibirFormularioAtt(usuario.id)">Atualizar</button>
-        <button type="button" class="btn btn-sm btn-danger " (click)="ExcluirUsuario(usuario)">Excluir</button>
-      </tr>
-    </table>
-
-
-
-  </div>
   </div>
 </div>
+
+<!-- Usuário já cadastrado, mostra os dados do usuario -->
+<div *ngIf="usuarioCadastrado">
+  <div class="container usuarioTabela p-5" *ngIf="visibilidadeTabela">
+    <div class="row">
+      <div class="col-md-7 offset-md-3 text-center  border rounded border-light">
+        <img class="usuarioImagem mt-3 " src="../../../assets/img/user.svg">
+        <table class="table mt-3">
+          <tr class="thead-light">
+            <th class="dadosCadastro">Nome</th>
+            <th class="dadosCadastro">Email</th>
+          </tr>
+          <tr class="tabelaUsuario" *ngFor="let usuario of usuarios">
+            <td class="border border-light shadow">{{ usuario.nome }}</td>
+            <td class="border border-light shadow ">{{ usuario.email }}</td>
+
+            <button type="button" class="btn btn-md btn-info botaoUsu col-4 " (click)="ExibirFormularioAtt(usuario.id)">Alterar</button>
+            <button type="button" class="btn btn-md btn-danger botaoUsu col-4 " (click)="ExcluirUsuario(usuario)">Sair</button>
+
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formulário para cadastro do usuário -->
 <div class="container p-5" *ngIf="visibilidadeFormulario">
   <div class="row">
     <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
-      <h6 class="dadosCadastro"> {{ tituloFormulario }}</h6>
+      <h6 class="dadosCadastro">{{ tituloFormulario }}</h6>
       <hr />
       <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
         <div class="form-group mt-3">
@@ -57,6 +65,4 @@
           </div>
         </div>
       </form>
-    </div>
   </div>
-</div>

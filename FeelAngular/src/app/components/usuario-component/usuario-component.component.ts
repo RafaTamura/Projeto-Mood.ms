@@ -16,17 +16,25 @@ export class UsuarioComponentComponent implements OnInit {
   usuarios : Usuario[];
   visibilidadeTabela : boolean = true
   visibilidadeFormulario : boolean = false
+  usuarioCadastrado: boolean
 
 constructor(private usuarioService :UsuarioService){
 
 }
-// onde os componentes são inicializados
-  ngOnInit(): void {
-    this.usuarioService.PegarTodos().subscribe(resultado =>
-      this.usuarios = resultado)
+ngOnInit(): void {
+  this.usuarioService.PegarTodos().subscribe(registros => {
+    this.usuarios = registros;
+    this.usuarioCadastrado = this.usuarios.length > 0;
+  });
 
-
-    };
+// Controle para mostrar se o usuario esta cadastrado
+  if (this.usuarios == null) {
+    this.usuarioCadastrado = false;
+  } else {
+    this.usuarioCadastrado = true;
+  }
+}
+// Funcao para exibir o formulario de cadastro
   ExibirFormularioCadastro(): void{
       this.visibilidadeFormulario = true;
       this.visibilidadeTabela = false;
@@ -40,6 +48,7 @@ constructor(private usuarioService :UsuarioService){
       });
     }
 
+// Funcao para Atualizar as musicas, exibe o formulário preenchido
     ExibirFormularioAtt(id: number):void{
       this.visibilidadeFormulario=true;
       this.visibilidadeTabela=false;
@@ -55,6 +64,7 @@ constructor(private usuarioService :UsuarioService){
   })
 })
 }
+// Função para enviar o formulario com os dados
     EnviarFormulario(): void{
       const usuario : Usuario = this.formulario.value;
       if(usuario.id > 0){
@@ -75,19 +85,26 @@ constructor(private usuarioService :UsuarioService){
         alert('Usuário Cadastrado com Sucesso');
         this.usuarioService.PegarTodos().subscribe(registros=>{
           this.usuarios = registros;
+          self.location.reload();
+
     })
   })
 }
-    }
+}
+// Função para excluir o usuario
     ExcluirUsuario(usuario : Usuario){
       self.location.reload();
       this.usuarioService.ExcluirUsuario(usuario).subscribe(() => {
         this.ExibirFormularioAtt
       })
   }
+
+// Função para voltar a página
   Voltar(): void{
     this.visibilidadeTabela = true;
     this.visibilidadeFormulario = false;
     }
+
+
 
 }

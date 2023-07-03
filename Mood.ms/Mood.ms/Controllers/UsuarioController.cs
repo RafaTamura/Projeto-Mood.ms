@@ -9,6 +9,7 @@ namespace Mood.ms.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
+     //Consulta todos da Database (GET)
         [HttpGet]
         [Route("usuario")]
         public async Task<IActionResult> getAllAsync(
@@ -21,7 +22,7 @@ namespace Mood.ms.Controllers
 
             return usuario == null ? NotFound() : Ok(usuario);
         }
-
+    //Consulta pelo ID (GET)
         [HttpGet]
         [Route("usuario/{id}")]
         public async Task<IActionResult> getByIdAsync(
@@ -36,6 +37,7 @@ namespace Mood.ms.Controllers
 
             return usuario == null ? NotFound() : Ok(usuario);
         }
+    //Inserir dados no Banco de Dados (POST)
         [HttpPost]
         [Route("usuario")]
         public async Task<IActionResult> PostAsync([FromServices] Contexto contexto, [FromBody] Usuario usuario)
@@ -56,6 +58,8 @@ namespace Mood.ms.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+    //Atualiza os dados no banco de dados
         [HttpPut]
         [Route("usuario/{id}")]
         public async Task<IActionResult> PutAsync(
@@ -82,6 +86,7 @@ namespace Mood.ms.Controllers
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
+    //Exclui o dado no banco de dados
         [HttpDelete]
         [Route("usuario/{id}")]
         public async Task<IActionResult> DeleteAsync(

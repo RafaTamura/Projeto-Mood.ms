@@ -1,8 +1,4 @@
-
-
-.content {
-  flex: 1;
-}
+/* Estilizar Fontes  */
 .dadosCadastro{
   color: #fff;
   font-size: 1.2rem;
@@ -12,6 +8,26 @@
   color: #fff;
 }
 
+/* Estilizar a imagem */
 .usuarioImagem{
   width: 30%;
+  background-color: #fff ;
+  border-radius: 50%;
+}
+
+/* Estilizar as tabelas  */
+.tabelaUsuario{
+  background-color:
+  rgba(255, 255, 255, 0.642) ;
+  color: black
+  ;
+  width: -10px;
+}
+.botaoUsu{
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.usuarioTabela{
+  margin-left: 115px;
 }
