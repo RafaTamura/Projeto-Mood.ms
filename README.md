@@ -25,7 +25,7 @@ Na aba perfil caso não esteja cadastrado ele aparece a opção de novo cadastro
 ### Mood!
 Agora temos a aba principal! Onde ele informa os sentimentos cadastrados e o usuário informa qual que ele está sentindo no momento, para que retorne as músicas relacionadas a aquele sentimento.
 ![mood](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/8d87dcfa-9d61-487e-8766-30dc6a90ad8c)
-![resultado](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/ee763487-1466-4d61-877c-df92ece69b19)
+![Screenshot (11)](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/70594217-1269-4bd7-85ce-d2c33bf0eddb)
 
 ### Sobre
 Nesta aba temos mais informações sobre o projeto, sua finalidade, tecnologias utilizadas e um agradecimento a todos que me auxiliaram para que este projeto tenha saído do papel.
