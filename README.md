@@ -3,6 +3,35 @@ Bem-vindo! Este projeto é uma plataforma de gerenciamento de músicas chamada M
 <hr>
 Neste projeto, foram utilizados conhecimentos de criação e consumo de API, empregando o framework Entity e o SQL Server como banco de dados, além dos frameworks Angular e Bootstrap para o front-end.
 <hr>
+Segue algumas imagens da aplicação em funcionamento.
+
+### Tela Inicial 
+Aqui tem uma breve introdução de como utilizar a aplicação seguindo os passos dos cards. 
+![telaInicial](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/b570834f-e39b-4214-8d4a-94d6dc63becc)
+![telaInicial2](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/3fc6af0a-02c7-4bbc-bc01-a568fb2f3097)
+
+### Músicas
+Nesta aba é onde ocorre o cadastro das músicas, ele solicita o Nome da música, Artista, Estilo musical, como você se sente ao ouvir determinada música e o link por onde você costuma ouvir.
+![cadastrarMusica](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/bb7dfb0e-310e-4deb-9f85-fe38ea1aa2eb)
+![musicasCadastradas](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/43a68959-7cbf-4b24-b59d-f0cf5fd44638)
+
+
+### Perfil 
+Na aba perfil caso não esteja cadastrado ele aparece a opção de novo cadastro, porém caso já esteja cadastrado ele informa os dados do usuário, com a opção de Sair ou Alterar
+
+![formularioCadastroPerfil](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/4a19d83f-17ea-4ac5-a6a1-876c4d945a9e)
+![perfilCadastrado](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/4ddecac4-8a8a-44f3-9e5a-598140c266b3)
+
+### Mood!
+Agora temos a aba principal! Onde ele informa os sentimentos cadastrados e o usuário informa qual que ele está sentindo no momento, para que retorne as músicas relacionadas a aquele sentimento.
+![mood](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/8d87dcfa-9d61-487e-8766-30dc6a90ad8c)
+![resultado](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/ee763487-1466-4d61-877c-df92ece69b19)
+
+### Sobre
+Nesta aba temos mais informações sobre o projeto, sua finalidade, tecnologias utilizadas e um agradecimento a todos que me auxiliaram para que este projeto tenha saído do papel.
+![sobre](https://github.com/RafaTamura/Projeto-Mood.ms/assets/104770869/0a8ac830-9fb3-45a4-a522-6ea40db78c20)
+
+
 
 ### Passo a Passo
 - Criação do banco de dados no SQL Server.
@@ -25,7 +54,6 @@ Após verificar que a API está funcionando corretamente, é hora de utilizar o 
 
 <hr>
 
-Segue algumas imagens da aplicação em funcionamento.
 
 
 
