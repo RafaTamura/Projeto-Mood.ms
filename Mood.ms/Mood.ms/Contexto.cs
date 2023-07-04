@@ -18,6 +18,8 @@ namespace Mood.ms
         }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Musica> Musica { get; set; }
+
+        // Configura o caminho para o Banco de dados
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = new ConfigurationBuilder()

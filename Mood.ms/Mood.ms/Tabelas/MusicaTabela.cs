@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Mood.ms.Tabelas
 {
+    // Monta a tabela de Musica no banco de dados
     public class MusicaTabelas : IEntityTypeConfiguration<Musica>
     {
         public void Configure(EntityTypeBuilder<Musica> builder)

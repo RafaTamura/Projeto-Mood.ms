@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Mood.ms.Tabelas
 {
+    //Monta a tabela do usuario no Banco de Dados
     public class UsuarioTabelas : IEntityTypeConfiguration<Usuario>
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
