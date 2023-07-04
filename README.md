@@ -17,10 +17,10 @@ Neste projeto, foram utilizados conhecimentos de criação e consumo de API, emp
 
 Após verificar que a API está funcionando corretamente, é hora de utilizar o Angular para criar a interface do usuário.
 <hr>
-- Após toda a API respondendo corretamente é o momento de utilizar o Angular para a criação do front-end da aplicação.
-- É realizada a instalação do Node e do npm, na qual funciona como um gerenciador de pacotes. A instalação pode ser realizada no link a seguir <a href="https://nodejs.org/pt-br/download"> Instalação Node</a>.
-- Agora para a instalação do Angular é só utilizar o comando <b> npm install @angulalr/cli</b>
-- Para criar um projeto novo é só utilizar o ng do Angular, <b> ng new Mood.ms</b>.
+- Após toda a API respondendo corretamente é o momento de utilizar o Angular para a criação do front-end da aplicação. <br>
+- É realizada a instalação do Node e do npm, na qual funciona como um gerenciador de pacotes. A instalação pode ser realizada no link a seguir <a href="https://nodejs.org/pt-br/download"> Instalação Node</a>. <br>
+- Agora para a instalação do Angular é só utilizar o comando <b> npm install @angulalr/cli</b> <br>
+- Para criar um projeto novo é só utilizar o ng do Angular, <b> ng new Mood.ms</b>. <br>
 - Neste projeto todas as configurações para conectar o front com a API foram realizadas nos arquivos services de cada componente, e as rotas ajustadas no app-routing.module.ts.
 
 <hr>
