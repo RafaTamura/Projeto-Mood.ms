@@ -13,7 +13,8 @@ Neste projeto, foram utilizados conhecimentos de criação e consumo de API, emp
 - Configuração da classe Program.cs, responsável por diversos aspectos da aplicação, como cors, Swagger, redirecionamento HTTP para HTTPS e autorização, além de mapear os controllers.
 - Utilização do Code First para definir o banco de dados utilizando classes em C#.
 - Criação da pasta Migrations com o comando Add-Migration (nome da migration) no terminal do Visual Studio, seguido pelo comando Update-Database para atualizar o banco de dados com as alterações da migração.
-###Front-end
+<h2>Front-end </h2>
+
 Após verificar que a API está funcionando corretamente, é hora de utilizar o Angular para criar a interface do usuário.
 <hr>
 - Após toda a API respondendo corretamente é o momento de utilizar o Angular para a criação do front-end da aplicação.
